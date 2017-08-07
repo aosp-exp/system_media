@@ -355,6 +355,11 @@ typedef enum {
                                         AUDIO_FORMAT_AAC_SUB_HE_V2),
     AUDIO_FORMAT_AAC_ELD             = (AUDIO_FORMAT_AAC |
                                         AUDIO_FORMAT_AAC_SUB_ELD),
+/*Offload PCM formats*/
+    AUDIO_FORMAT_PCM_16_BIT_OFFLOAD  = (AUDIO_FORMAT_PCM_OFFLOAD |
+                                        AUDIO_FORMAT_PCM_SUB_16_BIT),
+    AUDIO_FORMAT_PCM_24_BIT_OFFLOAD  = (AUDIO_FORMAT_PCM_OFFLOAD |
+                                        AUDIO_FORMAT_PCM_SUB_8_24_BIT),
 } audio_format_t;
 
 /* For the channel mask for position assignment representation */
@@ -1448,6 +1453,12 @@ static inline bool audio_is_valid_format(audio_format_t format)
     case AUDIO_FORMAT_DTS_HD:
     case AUDIO_FORMAT_IEC61937:
     case AUDIO_FORMAT_DOLBY_TRUEHD:
+        return true;
+    case AUDIO_FORMAT_PCM_OFFLOAD:
+        if (format != AUDIO_FORMAT_PCM_16_BIT_OFFLOAD &&
+                format != AUDIO_FORMAT_PCM_24_BIT_OFFLOAD) {
+            return false;
+        }
         return true;
     default:
         return false;
