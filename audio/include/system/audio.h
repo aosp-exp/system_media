@@ -673,6 +673,7 @@ enum {
     AUDIO_DEVICE_OUT_IP                        = 0x800000,
     /* audio bus implemented by the audio system (e.g an MOST stereo channel) */
     AUDIO_DEVICE_OUT_BUS                       = 0x1000000,
+	AUDIO_DEVICE_OUT_PROXY                     = 0x2000000,
     AUDIO_DEVICE_OUT_DEFAULT                   = AUDIO_DEVICE_BIT_DEFAULT,
     AUDIO_DEVICE_OUT_ALL      = (AUDIO_DEVICE_OUT_EARPIECE |
                                  AUDIO_DEVICE_OUT_SPEAKER |
@@ -698,6 +699,7 @@ enum {
                                  AUDIO_DEVICE_OUT_AUX_LINE |
                                  AUDIO_DEVICE_OUT_SPEAKER_SAFE |
                                  AUDIO_DEVICE_OUT_IP |
+				AUDIO_DEVICE_OUT_PROXY |
                                  AUDIO_DEVICE_OUT_BUS |
                                  AUDIO_DEVICE_OUT_DEFAULT),
     AUDIO_DEVICE_OUT_ALL_A2DP = (AUDIO_DEVICE_OUT_BLUETOOTH_A2DP |
@@ -802,6 +804,8 @@ typedef enum {
 
     AUDIO_OUTPUT_FLAG_IEC958_NONAUDIO = 0x400, // Audio stream contains compressed audio in
                                                // SPDIF data bursts, not PCM.
+	AUDIO_OUTPUT_FLAG_VOIP_RX = 0x800,  // use this flag in combination with DIRECT to
+                                         // start voip over voice path.
 } audio_output_flags_t;
 
 /* The audio input flags are analogous to audio output flags.
