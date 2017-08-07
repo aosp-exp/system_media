@@ -324,6 +324,8 @@ typedef enum {
     AUDIO_FORMAT_WMA_PRO             = 0x13000000UL,
     AUDIO_FORMAT_EVRCNW              = 0x19000000UL,
     AUDIO_FORMAT_EVRCWB              = 0x16000000UL,
+    AUDIO_FORMAT_EVRC                = 0x10000000UL,
+    AUDIO_FORMAT_EVRCB               = 0x15000000UL,
     /* Aliases */
     /* note != AudioFormat.ENCODING_PCM_16BIT */
     AUDIO_FORMAT_PCM_16_BIT          = (AUDIO_FORMAT_PCM |
@@ -1465,6 +1467,8 @@ static inline bool audio_is_valid_format(audio_format_t format)
     case AUDIO_FORMAT_WMA_PRO:
     case AUDIO_FORMAT_EVRCNW:
     case AUDIO_FORMAT_EVRCWB:
+    case AUDIO_FORMAT_EVRC:
+    case AUDIO_FORMAT_EVRCB:
         return true;
     case AUDIO_FORMAT_PCM_OFFLOAD:
         if (format != AUDIO_FORMAT_PCM_16_BIT_OFFLOAD &&
