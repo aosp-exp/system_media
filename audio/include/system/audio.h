@@ -319,7 +319,7 @@ typedef enum {
     AUDIO_FORMAT_DOLBY_TRUEHD        = 0x0E000000UL,
     AUDIO_FORMAT_MAIN_MASK           = 0xFF000000UL, /* Deprecated. Use audio_get_main_format() */
     AUDIO_FORMAT_SUB_MASK            = 0x00FFFFFFUL,
-
+    AUDIO_FORMAT_PCM_OFFLOAD         = 0x1A000000UL,
     /* Aliases */
     /* note != AudioFormat.ENCODING_PCM_16BIT */
     AUDIO_FORMAT_PCM_16_BIT          = (AUDIO_FORMAT_PCM |
